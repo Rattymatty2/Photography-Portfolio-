@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neve Turner - Photography Portfolio</title>
+        <link rel="stylesheet" href="../CSS/homepage.css">
+    </head>
+    <body>
+        <!-- Header across the top of the page -->
+        <header class="header">
+            <h1 class="logo"> Neve Turner </h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="portraits.html">Portraits</a></li>
+                    <li><a href="nature.html">Nature</a></li>
+                    <li><a href="contact.html">Contact me</a></li>
+                </ul>
+            </header>
+        <!-- Cards to hold photos -->
+        <div class="card-container">
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Portrait 1">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/miraBW.jpg" alt="Portrait 1">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>Mira Swartz. Toronto ON, 2023</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Portrait 2">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/boatOnTheWater.jpg" alt="Portrait 2">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>The Georgian Bay, Ontario, summer 2023.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 1">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/PurpleCrowd.jpg" alt="Nature 1">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>Unnamed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 3">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/carTroubles.jpg" alt="Nature 3">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>Car troubles. Killarney Provincial Park ON, 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 2">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/guitarBW.jpg" alt="Nature 2">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>Unnamed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 3">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/maligneBoat.jpg" alt="Nature 3">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>View from Spirit Island. Jasper AB, 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 3">
+                <div class="card-inner">
+                    <div class="card-face card-face--front">
+                        <img src="../Images/homepage/lakeView.jpg" alt="Nature 3">
+                    </div>
+                    <div class="card-face card-face--back">
+                        <p>Unnamed. Jasper AB, 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.querySelectorAll('.card').forEach((card) => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('is-flipped');
+                });
+
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        card.classList.toggle('is-flipped');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
