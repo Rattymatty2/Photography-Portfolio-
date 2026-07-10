@@ -18,94 +18,105 @@
             </header>
         <!-- Cards to hold photos -->
         <div class="card-container">
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Portrait 1">
+            <div class="card" onclick="openModal(this)">
                 <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/miraBW.jpg" alt="Portrait 1">
-                    </div>
-                    <div class="card-face card-face--back">
+                    <img src="assets/images/homepage/miraBW.jpg" alt="Portrait 1">
+                    <div class="card-caption">
                         <p>Mira Swartz. Toronto ON, 2023</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Portrait 2">
+            <div class="card" onclick="openModal(this)">
                 <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/boatOnTheWater.jpg" alt="Portrait 2">
-                    </div>
-                    <div class="card-face card-face--back">
+                    <img src="assets/images/homepage/boatOnTheWater.jpg" alt="Portrait 2">
+                    <div class="card-caption">
                         <p>The Georgian Bay, Ontario, summer 2023.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 1">
-                <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/PurpleCrowd.jpg" alt="Nature 1">
-                    </div>
-                    <div class="card-face card-face--back">
+            <div class="card" onclick="openModal(this)">
+                <div class="card-inner" >
+                    <img src="assets/images/homepage/PurpleCrowd.jpg" alt="Nature 1">
+                    <div class="card-caption">
                         <p>Unnamed.</p>
                     </div>
                 </div>
             </div>
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 3">
+            <div class="card" onclick="openModal(this)">
                 <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/carTroubles.jpg" alt="Nature 3">
-                    </div>
-                    <div class="card-face card-face--back">
+                    <img src="assets/images/homepage/carTroubles.jpg" alt="Nature 3">
+                    <div class="card-caption">
                         <p>Car troubles. Killarney Provincial Park ON, 2023</p>
                     </div>
                 </div>
             </div>
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 2">
+            <div class="card" onclick="openModal(this)">
                 <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/guitarBW.jpg" alt="Nature 2">
-                    </div>
-                    <div class="card-face card-face--back">
+                    <img src="assets/images/homepage/guitarBW.jpg" alt="Nature 2">
+                    <div class="card-caption">
                         <p>Unnamed.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 3">
+            <div class="card" onclick="openModal(this)">
                 <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/maligneBoat.jpg" alt="Nature 3">
-                    </div>
-                    <div class="card-face card-face--back">
+                    <img src="assets/images/homepage/maligneBoat.jpg" alt="Nature 3">
+                    <div class="card-caption">
                         <p>View from Spirit Island. Jasper AB, 2026</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card" tabindex="0" role="button" aria-label="Flip card for Nature 3">
+            <div class="card" onclick="openModal(this)">
                 <div class="card-inner">
-                    <div class="card-face card-face--front">
-                        <img src="assets/images/homepage/lakeView.jpg" alt="Nature 3">
-                    </div>
-                    <div class="card-face card-face--back">
+                    <img src="assets/images/homepage/lakeView.jpg" alt="Nature 3">
+                    <div class="card-caption">
                         <p>Unnamed. Jasper AB, 2026</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Lightbox -->
+             <div class="lightbox" id="myModal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="modal-content" id="modalContent"></div>
+             </div>
         </div>
-
         <script>
-            document.querySelectorAll('.card').forEach((card) => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('is-flipped');
-                });
+            function openModal(card) {
+                const modal = document.getElementById("myModal");
+                const modalContent = document.getElementById("modalContent");
 
-                card.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        card.classList.toggle('is-flipped');
-                    }
-                });
+                modalContent.innerHTML = ""
+
+                const clone = card.cloneNode(true);
+                modalContent.appendChild(clone);
+
+                modal.style.display = "flex";
+            }
+            function closeModal() {
+
+                const modal = document.getElementById("myModal");
+                const modalContent = document.getElementById("modalContent");
+
+                modal.style.display = "none";
+                modalContent.innerHTML = "";
+            }
+
+            // Close when clicking outside the card
+            document.getElementById("myModal").addEventListener("click", function() {
+                closeModal();
+            });
+
+            // Close with the Escape key
+            document.addEventListener("keydown", function(event) {
+
+                if (event.key === "Escape") {
+                    closeModal();
+                }
             });
         </script>
     </body>
